@@ -138,7 +138,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createBook(newBook: <a href="../interfaces/Book.html">BookDto</a>)</code>
+<code>createBook(newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
                 </td>
             </tr>
 
@@ -168,7 +168,7 @@
                                 <tr>
                                     <td>newBook</td>
                                     <td>
-                                                <code><a href="../interfaces/Book.html" target="_self" >BookDto</a></code>
+                                                <code><a href="../classes/BookDto.html" target="_self" >BookDto</a></code>
                                     </td>
 
                                     <td>
@@ -183,7 +183,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >BookDto</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -215,8 +215,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/books/books.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/books/books.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -253,7 +253,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -319,7 +319,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book[]</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -389,7 +389,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -414,15 +414,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newBook: <a href="../interfaces/Book.html">BookDto</a>)</code>
+<code>updateBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/books/books.service.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/books/books.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -456,7 +456,7 @@
                                 <tr>
                                     <td>newBook</td>
                                     <td>
-                                                <code><a href="../interfaces/Book.html" target="_self" >BookDto</a></code>
+                                                <code><a href="../classes/BookDto.html" target="_self" >BookDto</a></code>
                                     </td>
 
                                     <td>
@@ -471,7 +471,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -501,7 +501,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/Book.html" target="_self" >Book[]</a></code>
+                            <i>Type : </i>        <code><a href="../classes/Book.html" target="_self" >Book[]</a></code>
 
                         </td>
                     </tr>
@@ -552,7 +552,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, HttpStatus, HttpException } from &#x27;@nestjs/common&#x27;;
 import { BookDto } from &#x27;./book.dto&#x27;;
-import { Book } from &#x27;./book.interface&#x27;;
+import { Book } from &#x27;./book.class&#x27;;
 
 @Injectable()
 export class BooksService {
@@ -590,8 +590,19 @@ export class BooksService {
     return this.books[parseInt(bookId) - 1];
   }
 
-  createBook(newBook: BookDto): BookDto {
-    return newBook;
+  createBook(newBook: BookDto): Book {
+    let book &#x3D; new Book();
+
+    book.id &#x3D; 99;
+    book.author &#x3D; newBook.author;
+    book.description &#x3D; newBook.description;
+    book.genre &#x3D; newBook.genre;
+    book.image_url &#x3D; newBook.image_url;
+    book.pages &#x3D; newBook.pages;
+    book.publisher &#x3D; newBook.publisher;
+    book.title &#x3D; newBook.title;
+
+    return book;
   }
 
   deleteBook(bookId: string): Book {

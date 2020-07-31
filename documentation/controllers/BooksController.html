@@ -129,7 +129,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createBook(newBook: <a href="../interfaces/Book.html">BookDto</a>)</code>
+<code>createBook(newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
                 </td>
             </tr>
 
@@ -137,7 +137,7 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@ApiOperation({summary: &#x27;Crear un libro&#x27;})<br />@ApiResponse({status: 201, description: &#x27;Datos del libro creado&#x27;, type: BookDto})<br />@ApiResponse({status: 403, description: &#x27;Forbidden.&#x27;})<br /></code>
+                    <code>@Post()<br />@ApiOperation({summary: &#x27;Crear un libro&#x27;})<br />@ApiResponse({status: 201, description: &#x27;Datos del libro creado&#x27;, type: Book})<br />@ApiResponse({status: 403, description: &#x27;Forbidden.&#x27;})<br /></code>
                 </td>
             </tr>
 
@@ -167,7 +167,7 @@
                                 <tr>
                                     <td>newBook</td>
                                     <td>
-                                                <code><a href="../interfaces/Book.html" target="_self" >BookDto</a></code>
+                                                <code><a href="../classes/BookDto.html" target="_self" >BookDto</a></code>
                                     </td>
 
                                     <td>
@@ -186,7 +186,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >BookDto</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -269,7 +269,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -352,7 +352,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book[]</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -435,7 +435,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -461,7 +461,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newBook: <a href="../interfaces/Book.html">BookDto</a>)</code>
+<code>updateBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
                 </td>
             </tr>
 
@@ -515,7 +515,7 @@
                                 <tr>
                                     <td>newBook</td>
                                     <td>
-                                                <code><a href="../interfaces/Book.html" target="_self" >BookDto</a></code>
+                                                <code><a href="../classes/BookDto.html" target="_self" >BookDto</a></code>
                                     </td>
 
                                     <td>
@@ -534,7 +534,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
 
                     </div>
                     <div class="io-description">
@@ -563,7 +563,7 @@ import { BooksService } from &#x27;./books.service&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { BookDto } from &#x27;./book.dto&#x27;;
 import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { Book } from &#x27;./book.interface&#x27;;
+import { Book } from &#x27;./book.class&#x27;;
 
 @ApiTags(&#x27;book&#x27;)
 @Controller(&#x27;books&#x27;)
@@ -616,10 +616,10 @@ export class BooksController {
   @ApiResponse({
     status: 201,
     description: &#x27;Datos del libro creado&#x27;,
-    type: BookDto,
+    type: Book,
   })
   @ApiResponse({ status: 403, description: &#x27;Forbidden.&#x27; })
-  createBook(@Body() newBook: BookDto): BookDto {
+  createBook(@Body() newBook: BookDto): Book {
     return this.booksService.createBook(newBook);
   }
 

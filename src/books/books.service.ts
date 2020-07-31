@@ -1,6 +1,6 @@
 import { Injectable, HttpStatus, HttpException } from '@nestjs/common';
 import { BookDto } from './book.dto';
-import { Book } from './book.interface';
+import { Book } from './book.class';
 
 @Injectable()
 export class BooksService {
@@ -38,8 +38,19 @@ export class BooksService {
     return this.books[parseInt(bookId) - 1];
   }
 
-  createBook(newBook: BookDto): BookDto {
-    return newBook;
+  createBook(newBook: BookDto): Book {
+    let book = new Book();
+
+    book.id = 99;
+    book.author = newBook.author;
+    book.description = newBook.description;
+    book.genre = newBook.genre;
+    book.image_url = newBook.image_url;
+    book.pages = newBook.pages;
+    book.publisher = newBook.publisher;
+    book.title = newBook.title;
+
+    return book;
   }
 
   deleteBook(bookId: string): Book {

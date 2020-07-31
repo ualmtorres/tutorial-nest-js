@@ -12,7 +12,7 @@ import { BooksService } from './books.service';
 import { Request } from 'express';
 import { BookDto } from './book.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { Book } from './book.interface';
+import { Book } from './book.class';
 
 @ApiTags('book')
 @Controller('books')
@@ -65,10 +65,10 @@ export class BooksController {
   @ApiResponse({
     status: 201,
     description: 'Datos del libro creado',
-    type: BookDto,
+    type: Book,
   })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
-  createBook(@Body() newBook: BookDto): BookDto {
+  createBook(@Body() newBook: BookDto): Book {
     return this.booksService.createBook(newBook);
   }
 

@@ -17,6 +17,6 @@ async function bootstrap() {
   // La ruta en que se sirve la documentación
   SwaggerModule.setup('docs', app, document);
 
-  await app.listen(3000);
+  await app.listen(3001);
 }
 bootstrap();
