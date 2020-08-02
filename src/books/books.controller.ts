@@ -12,7 +12,7 @@ import { BooksService } from './books.service';
 import { Request } from 'express';
 import { BookDto } from './book.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { Book } from './book.class';
+import { Book } from './book.entity';
 
 @ApiTags('book')
 @Controller('books')
@@ -35,7 +35,7 @@ export class BooksController {
     description: 'Lista de libros',
     type: BookDto,
   })
-  findAll(@Req() request: Request): Book[] {
+  findAll(@Req() request: Request): Promise<Book[]> {
     console.log(request.query);
     return this.booksService.findAll(request.query);
   }
@@ -45,13 +45,14 @@ export class BooksController {
    * @returns {Book} Devuelve un libro específico
    * @param {string} bookId  Identificador del libro a buscar
    */
+
   @Get(':bookId')
   @ApiOperation({ summary: 'Devuelve información sobre un libro específico' })
   @ApiResponse({
     status: 201,
     description: 'Datos del libro',
   })
-  findBook(@Param('bookId') bookId: string): Book {
+  findBook(@Param('bookId') bookId: string): Promise<Book> {
     return this.booksService.findBook(bookId);
   }
 
@@ -68,7 +69,7 @@ export class BooksController {
     type: Book,
   })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
-  createBook(@Body() newBook: BookDto): Book {
+  createBook(@Body() newBook: BookDto): Promise<Book> {
     return this.booksService.createBook(newBook);
   }
 
@@ -83,7 +84,7 @@ export class BooksController {
     status: 201,
     description: 'Datos del libro eliminado',
   })
-  deleteBook(@Param('bookId') bookId: string): Book {
+  deleteBook(@Param('bookId') bookId: string): Promise<Book> {
     return this.booksService.deleteBook(bookId);
   }
 
@@ -99,7 +100,10 @@ export class BooksController {
     status: 201,
     description: 'Datos del libro actualizado',
   })
-  updateBook(@Param('bookId') bookId: string, @Body() newBook: BookDto): Book {
+  updateBook(
+    @Param('bookId') bookId: string,
+    @Body() newBook: BookDto,
+  ): Promise<Book> {
     return this.booksService.updateBook(bookId, newBook);
   }
 }
