@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -37,9 +37,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>BooksService</li>
+  <li>Classes</li>
+  <li>AppLogger</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -57,10 +61,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/books/books.service.ts</code>
+            <code>src/app.logger.ts</code>
         </p>
 
 
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code>LoggerService</code>
+            </p>
 
 
             <section>
@@ -76,7 +87,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#books">books</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#logger">logger</a>
                             </li>
                         </ul>
                     </td>
@@ -91,23 +103,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#createBook">createBook</a>
+                                <a href="#error">error</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#deleteBook">deleteBook</a>
+                                <a href="#initializeLogger">initializeLogger</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAll">findAll</a>
+                                <a href="#log">log</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findBook">findBook</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#updateBook">updateBook</a>
+                                <a href="#warn">warn</a>
                             </li>
                         </ul>
                     </td>
@@ -127,12 +132,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(booksRepository: Repository<Book>)</code>
+<code>constructor(label?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/books/books.service.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app.logger.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -150,14 +155,14 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>booksRepository</td>
+                                                        <td>label</td>
                                                   
                                                         <td>
-                                                                    <code>Repository&lt;Book&gt;</code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
                                                   
                                                     <td>
-                                                            No
+                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -172,378 +177,6 @@
 
             <section>
     
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createBook"></a>
-                    <span class="name">
-                        <b>
-                            createBook
-                        </b>
-                        <a href="#createBook"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createBook(newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/books/books.service.ts:48</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>newBook</td>
-                                    <td>
-                                                <code><a href="../classes/BookDto.html" target="_self" >BookDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Book&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteBook"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            deleteBook
-                        </b>
-                        <a href="#deleteBook"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/books/books.service.ts:52</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>bookId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAll"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findAll
-                        </b>
-                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll(params)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/books/books.service.ts:40</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Book[]&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findBook"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findBook
-                        </b>
-                        <a href="#findBook"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/books/books.service.ts:44</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>bookId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Book&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateBook"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            updateBook
-                        </b>
-                        <a href="#updateBook"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/books/books.service.ts:63</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>bookId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>newBook</td>
-                                    <td>
-                                                <code><a href="../classes/BookDto.html" target="_self" >BookDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Book&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-            <section>
-    
         <h3 id="inputs">
             Properties
         </h3>
@@ -551,53 +184,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="books"></a>
+                        <a name="logger"></a>
                         <span class="name">
                             <b>
-                            books</b>
-                            <a href="#books"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Private</span>
+                            logger</b>
+                            <a href="#logger"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Book[]</code>
+                            <i>Type : </i>    <code>winston.Logger</code>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[
-    {
-      id: 1,
-      title: &#x27;Una historia de España&#x27;,
-      genre: &#x27;Historia&#x27;,
-      description:
-        &#x27;Un relato ameno, personal, a ratos irónico, pero siempre único, de nuestra accidentada historia a través de los siglos. Una obra concebida por el autor para, en palabras suyas, «divertirme, releer y disfrutar; un pretexto para mirar atrás desde los tiempos remotos hasta el presente, reflexionar un poco sobre ello y contarlo por escrito de una manera poco ortodoxa.&#x27;,
-      author: &#x27;Arturo Pérez-Reverte&#x27;,
-      publisher: &#x27;Alfaguara&#x27;,
-      pages: 256,
-      image_url:
-        &#x27;https://images-na.ssl-images-amazon.com/images/I/41%2B-e981m1L._SX311_BO1,204,203,200_.jpg&#x27;,
-    },
-    {
-      id: 2,
-      title: &#x27;Historia de España contada para escépticos&#x27;,
-      genre: &#x27;Historia&#x27;,
-      description:
-        &#x27;Como escribe el autor, no pretende ser veraz, justa y desapasionada, porque ninguna historia lo es. No está hecha para halagar a reyes y gobernantes, ni pretende halagar a los banqueros, ni a la Conferencia Episcopal, ni al colectivo gay.&#x27;,
-      author: &#x27;Juan Eslava Galán&#x27;,
-      publisher: &#x27;Booket&#x27;,
-      pages: 592,
-      image_url:
-        &#x27;https://images-na.ssl-images-amazon.com/images/I/51IyZ5Mq8YL._SX326_BO1,204,203,200_.jpg&#x27;,
-    },
-  ]</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/books/books.service.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app.logger.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -606,88 +210,369 @@
         </table>
 </section>
 
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <b>
+                            error
+                        </b>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>error(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, trace: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app.logger.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>trace</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeLogger"></a>
+                    <span class="name">
+                        <b>
+                            initializeLogger
+                        </b>
+                        <a href="#initializeLogger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeLogger(label?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">src/app.logger.ts:11</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>label</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="log"></a>
+                    <span class="name">
+                        <b>
+                            log
+                        </b>
+                        <a href="#log"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>log(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app.logger.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="warn"></a>
+                    <span class="name">
+                        <b>
+                            warn
+                        </b>
+                        <a href="#warn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>warn(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app.logger.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, HttpStatus, HttpException } from &#x27;@nestjs/common&#x27;;
-import { BookDto } from &#x27;./book.dto&#x27;;
-import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { Book } from &#x27;./book.entity&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as path from &#x27;path&#x27;;
+import { LoggerService } from &#x27;@nestjs/common&#x27;;
+import * as winston from &#x27;winston&#x27;;
 
-@Injectable()
-export class BooksService {
-  books: Book[] &#x3D; [
-    {
-      id: 1,
-      title: &#x27;Una historia de España&#x27;,
-      genre: &#x27;Historia&#x27;,
-      description:
-        &#x27;Un relato ameno, personal, a ratos irónico, pero siempre único, de nuestra accidentada historia a través de los siglos. Una obra concebida por el autor para, en palabras suyas, «divertirme, releer y disfrutar; un pretexto para mirar atrás desde los tiempos remotos hasta el presente, reflexionar un poco sobre ello y contarlo por escrito de una manera poco ortodoxa.&#x27;,
-      author: &#x27;Arturo Pérez-Reverte&#x27;,
-      publisher: &#x27;Alfaguara&#x27;,
-      pages: 256,
-      image_url:
-        &#x27;https://images-na.ssl-images-amazon.com/images/I/41%2B-e981m1L._SX311_BO1,204,203,200_.jpg&#x27;,
-    },
-    {
-      id: 2,
-      title: &#x27;Historia de España contada para escépticos&#x27;,
-      genre: &#x27;Historia&#x27;,
-      description:
-        &#x27;Como escribe el autor, no pretende ser veraz, justa y desapasionada, porque ninguna historia lo es. No está hecha para halagar a reyes y gobernantes, ni pretende halagar a los banqueros, ni a la Conferencia Episcopal, ni al colectivo gay.&#x27;,
-      author: &#x27;Juan Eslava Galán&#x27;,
-      publisher: &#x27;Booket&#x27;,
-      pages: 592,
-      image_url:
-        &#x27;https://images-na.ssl-images-amazon.com/images/I/51IyZ5Mq8YL._SX326_BO1,204,203,200_.jpg&#x27;,
-    },
-  ];
-
-  constructor(
-    @InjectRepository(Book) private booksRepository: Repository&lt;Book&gt;,
-  ) {}
-
-  async findAll(params): Promise&lt;Book[]&gt; {
-    return await this.booksRepository.find();
+export class AppLogger implements LoggerService {
+  private logger: winston.Logger;
+  constructor(label?: string) {
+    this.initializeLogger(label);
+  }
+  initializeLogger(label?: string) {
+    this.logger &#x3D; winston.createLogger({
+      level: &#x27;info&#x27;,
+      //level: config.logger.level,
+      format: winston.format.json(),
+      transports: [
+        new winston.transports.File({
+          dirname: path.join(__dirname, &#x27;./../log/debug/&#x27;),
+          filename: &#x27;debug.log&#x27;,
+          level: &#x27;debug&#x27;,
+        }),
+        new winston.transports.File({
+          dirname: path.join(__dirname, &#x27;./../log/error/&#x27;),
+          filename: &#x27;error.log&#x27;,
+          level: &#x27;error&#x27;,
+        }),
+        new winston.transports.File({
+          dirname: path.join(__dirname, &#x27;./../log/info/&#x27;),
+          filename: &#x27;info.log&#x27;,
+          level: &#x27;info&#x27;,
+        }),
+      ],
+    });
+    if (process.env.NODE_ENV !&#x3D;&#x3D; &#x27;production&#x27;) {
+      this.logger.add(
+        new winston.transports.Console({
+          format: winston.format.simple(),
+        }),
+      );
+    }
+  }
+  error(message: string, trace: string) {
+    this.logger.log(&#x27;error&#x27;, &#x27;MyLogger error - &#x27; + message);
+    this.logger.error(message, trace);
   }
 
-  async findBook(bookId: string): Promise&lt;Book&gt; {
-    return await this.booksRepository.findOne({ where: { id: bookId } });
+  warn(message: string) {
+    this.logger.log(&#x27;warn&#x27;, &#x27;MyLogger error - &#x27; + message);
   }
 
-  createBook(newBook: BookDto): Promise&lt;Book&gt; {
-    return this.booksRepository.save(newBook);
-  }
-
-  async deleteBook(bookId: string): Promise&lt;any&gt; {
-    /*    return await this.booksRepository
-      .createQueryBuilder()
-      .delete()
-      .from(Book)
-      .whereInIds(bookId)
-      .execute();
-*/
-    return await this.booksRepository.delete({ id: parseInt(bookId) });
-  }
-
-  async updateBook(bookId: string, newBook: BookDto): Promise&lt;Book&gt; {
-    let toUpdate &#x3D; await this.booksRepository.findOne(bookId);
-
-    let updated &#x3D; Object.assign(toUpdate, newBook);
-
-    return this.booksRepository.save(updated);
+  log(message: string) {
+    this.logger.log(&#x27;info&#x27;, message);
   }
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -712,8 +597,8 @@ export class BooksService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'BooksService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppLogger.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -129,7 +129,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createBook(newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
+<code>createBook(request: Request, newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
                 </td>
             </tr>
 
@@ -143,8 +143,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/books/books.controller.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">src/books/books.controller.ts:141</a></div>
                 </td>
             </tr>
 
@@ -164,6 +164,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>newBook</td>
                                     <td>
@@ -186,7 +200,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;Book&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -212,7 +226,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>deleteBook(request: Request, bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -226,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">src/books/books.controller.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">src/books/books.controller.ts:164</a></div>
                 </td>
             </tr>
 
@@ -247,6 +261,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>bookId</td>
                                     <td>
@@ -269,7 +297,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;Book&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -303,14 +331,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiOperation({summary: &#x27;Obtener lista de libros&#x27;})<br />@ApiResponse({status: 201, description: &#x27;Lista de libros&#x27;, type: BookDto})<br /></code>
+                    <code>@Get()<br />@ApiOperation({summary: &#x27;Obtener lista de libros&#x27;})<br />@ApiResponse({status: 201, description: &#x27;Lista de libros&#x27;, type: Book})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/books/books.controller.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/books/books.controller.ts:87</a></div>
                 </td>
             </tr>
 
@@ -352,7 +380,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book[]</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;Book[]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -378,7 +406,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>findBook(request: Request, bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -392,8 +420,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/books/books.controller.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/books/books.controller.ts:113</a></div>
                 </td>
             </tr>
 
@@ -413,6 +441,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>bookId</td>
                                     <td>
@@ -435,7 +477,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;Book&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -461,7 +503,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateBook(bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
+<code>updateBook(request: Request, bookId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newBook: <a href="../classes/BookDto.html">BookDto</a>)</code>
                 </td>
             </tr>
 
@@ -475,8 +517,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">src/books/books.controller.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="191"
+                            class="link-to-prism">src/books/books.controller.ts:191</a></div>
                 </td>
             </tr>
 
@@ -496,6 +538,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>bookId</td>
                                     <td>
@@ -534,7 +590,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Book.html" target="_self" >Book</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;Book&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -558,21 +614,70 @@
   Body,
   Delete,
   Put,
+  Inject,
+  UseGuards,
 } from &#x27;@nestjs/common&#x27;;
 import { BooksService } from &#x27;./books.service&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { BookDto } from &#x27;./book.dto&#x27;;
-import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { Book } from &#x27;./book.class&#x27;;
-
+import {
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+  ApiBearerAuth,
+} from &#x27;@nestjs/swagger&#x27;;
+import { Book } from &#x27;./book.entity&#x27;;
+import { AppLogger } from &#x27;../app.logger&#x27;;
+import * as winston from &#x27;winston&#x27;;
+import { WINSTON_MODULE_NEST_PROVIDER } from &#x27;nest-winston&#x27;;
+import { LoggerService } from &#x27;@nestjs/common&#x27;;
+import { format, transports } from &#x27;winston&#x27;;
+import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
 @ApiTags(&#x27;book&#x27;)
 @Controller(&#x27;books&#x27;)
+@UseGuards(AuthGuard(&#x27;jwt&#x27;))
+@ApiBearerAuth(&#x27;access-token&#x27;)
 export class BooksController {
+  private theLogger: AppLogger &#x3D; new AppLogger();
+
+  logger &#x3D; winston.createLogger({
+    level: &#x27;info&#x27;,
+    format: winston.format.combine(
+      winston.format.timestamp({
+        format: &#x27;YYYY-MM-DD HH:mm:ss&#x27;,
+      }),
+      format.errors({ stack: true }),
+      format.splat(),
+      format.json(),
+    ),
+    defaultMeta: { service: &#x27;BooksService&#x27; },
+    transports: [
+      //
+      // - Write to all logs with level &#x60;info&#x60; and below to &#x60;quick-start-combined.log&#x60;.
+      // - Write all logs error (and below) to &#x60;quick-start-error.log&#x60;.
+      //
+      new transports.File({
+        filename: &#x27;quick-start-error.log&#x27;,
+        level: &#x27;error&#x27;,
+      }),
+      new transports.File({
+        filename: &#x27;quick-start-info.log&#x27;,
+        level: &#x27;info&#x27;,
+      }),
+      new transports.File({ filename: &#x27;quick-start-combined.log&#x27; }),
+      new winston.transports.Console(),
+    ],
+  });
+
   /**
    *
    * @param {BooksService} booksService  Servicio de libros
    */
-  constructor(private booksService: BooksService) {}
+  constructor(
+    private booksService: BooksService,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER)
+    private readonly winstonLogger: LoggerService,
+  ) {}
 
   /**
    *
@@ -584,11 +689,20 @@ export class BooksController {
   @ApiResponse({
     status: 201,
     description: &#x27;Lista de libros&#x27;,
-    type: BookDto,
+    type: Book,
   })
-  findAll(@Req() request: Request): Book[] {
-    console.log(request.query);
-    return this.booksService.findAll(request.query);
+  findAll(@Req() request: Request): Promise&lt;Book[]&gt; {
+    //console.log(request.query);
+    let startTime &#x3D; Date.now();
+    let data &#x3D; this.booksService.findAll(request.query);
+    let finishTime &#x3D; Date.now();
+    let elapsedTime &#x3D; finishTime - startTime;
+    this.logger.log({
+      level: &#x27;info&#x27;,
+      //      message: &#x60;GET. url:/. user:${request[&#x27;user&#x27;].username}. duration: ${elapsedTime}&#x60;,
+      message: &#x60;GET. url:/.  duration: ${elapsedTime}&#x60;,
+    });
+    return data;
   }
 
   /**
@@ -596,14 +710,26 @@ export class BooksController {
    * @returns {Book} Devuelve un libro específico
    * @param {string} bookId  Identificador del libro a buscar
    */
+
   @Get(&#x27;:bookId&#x27;)
   @ApiOperation({ summary: &#x27;Devuelve información sobre un libro específico&#x27; })
   @ApiResponse({
     status: 201,
     description: &#x27;Datos del libro&#x27;,
   })
-  findBook(@Param(&#x27;bookId&#x27;) bookId: string): Book {
-    return this.booksService.findBook(bookId);
+  findBook(
+    @Req() request: Request,
+    @Param(&#x27;bookId&#x27;) bookId: string,
+  ): Promise&lt;Book&gt; {
+    let startTime &#x3D; Date.now();
+    let data &#x3D; this.booksService.findBook(bookId);
+    let finishTime &#x3D; Date.now();
+    let elapsedTime &#x3D; finishTime - startTime;
+    this.logger.log({
+      level: &#x27;info&#x27;,
+      message: &#x60;GET. url:/${bookId}. user:${request[&#x27;user&#x27;].username}. duration: ${elapsedTime}&#x60;,
+    });
+    return data;
   }
 
   /**
@@ -619,8 +745,16 @@ export class BooksController {
     type: Book,
   })
   @ApiResponse({ status: 403, description: &#x27;Forbidden.&#x27; })
-  createBook(@Body() newBook: BookDto): Book {
-    return this.booksService.createBook(newBook);
+  createBook(@Req() request: Request, @Body() newBook: BookDto): Promise&lt;Book&gt; {
+    let startTime &#x3D; Date.now();
+    let data &#x3D; this.booksService.createBook(newBook);
+    let finishTime &#x3D; Date.now();
+    let elapsedTime &#x3D; finishTime - startTime;
+    this.logger.log({
+      level: &#x27;info&#x27;,
+      message: &#x60;POST. url:/. user:${request[&#x27;user&#x27;].username}. duration: ${elapsedTime}&#x60;,
+    });
+    return data;
   }
 
   /**
@@ -634,8 +768,19 @@ export class BooksController {
     status: 201,
     description: &#x27;Datos del libro eliminado&#x27;,
   })
-  deleteBook(@Param(&#x27;bookId&#x27;) bookId: string): Book {
-    return this.booksService.deleteBook(bookId);
+  deleteBook(
+    @Req() request: Request,
+    @Param(&#x27;bookId&#x27;) bookId: string,
+  ): Promise&lt;Book&gt; {
+    let startTime &#x3D; Date.now();
+    let data &#x3D; this.booksService.deleteBook(bookId);
+    let finishTime &#x3D; Date.now();
+    let elapsedTime &#x3D; finishTime - startTime;
+    this.logger.log({
+      level: &#x27;info&#x27;,
+      message: &#x60;DELETE. url:/${bookId}. user:${request[&#x27;user&#x27;].username}. duration: ${elapsedTime}&#x60;,
+    });
+    return data;
   }
 
   /**
@@ -650,8 +795,20 @@ export class BooksController {
     status: 201,
     description: &#x27;Datos del libro actualizado&#x27;,
   })
-  updateBook(@Param(&#x27;bookId&#x27;) bookId: string, @Body() newBook: BookDto): Book {
-    return this.booksService.updateBook(bookId, newBook);
+  updateBook(
+    @Req() request: Request,
+    @Param(&#x27;bookId&#x27;) bookId: string,
+    @Body() newBook: BookDto,
+  ): Promise&lt;Book&gt; {
+    let startTime &#x3D; Date.now();
+    let data &#x3D; this.booksService.updateBook(bookId, newBook);
+    let finishTime &#x3D; Date.now();
+    let elapsedTime &#x3D; finishTime - startTime;
+    this.logger.log({
+      level: &#x27;info&#x27;,
+      message: &#x60;PUT. url:/${bookId}. user:${request[&#x27;user&#x27;].username}. duration: ${elapsedTime}&#x60;,
+    });
+    return data;
   }
 }
 </code></pre>

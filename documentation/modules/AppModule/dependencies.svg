@@ -22,41 +22,45 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_AppModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="101.5,-70 101.5,-195 394.5,-195 394.5,-70 101.5,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="115,-70 115,-195 381,-195 381,-70 115,-70"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_AppModule_imports</title>
+<polygon fill="none" stroke="#000000" points="261,-78 261,-130 373,-130 373,-78 261,-78"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_AppModule_providers</title>
-<polygon fill="none" stroke="#000000" points="109.5,-78 109.5,-130 386.5,-130 386.5,-78 109.5,-78"/>
+<polygon fill="none" stroke="#000000" points="123,-78 123,-130 253,-130 253,-78 123,-78"/>
 </g>
-<!-- AppService -->
+<!-- BooksModule -->
 <g id="node1" class="node">
-<title>AppService</title>
-<ellipse fill="#fdb462" stroke="#000000" cx="321.5" cy="-104" rx="56.7406" ry="18"/>
-<text text-anchor="middle" x="321.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">AppService</text>
+<title>BooksModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="364.8316,-122 361.8316,-126 340.8316,-126 337.8316,-122 269.1684,-122 269.1684,-86 364.8316,-86 364.8316,-122"/>
+<text text-anchor="middle" x="317" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">BooksModule</text>
 </g>
 <!-- AppModule -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>AppModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="293.1571,-187 290.1571,-191 269.1571,-191 266.1571,-187 209.8429,-187 209.8429,-151 293.1571,-151 293.1571,-187"/>
-<text text-anchor="middle" x="251.5" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AppModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="293.6571,-187 290.6571,-191 269.6571,-191 266.6571,-187 210.3429,-187 210.3429,-151 293.6571,-151 293.6571,-187"/>
+<text text-anchor="middle" x="252" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AppModule</text>
+</g>
+<!-- BooksModule&#45;&gt;AppModule -->
+<g id="edge1" class="edge">
+<title>BooksModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="#000000" d="M281.5814,-122.1061C281.5814,-122.1061 281.5814,-140.991 281.5814,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="278.0814,-140.9909 281.5814,-150.991 285.0814,-140.991 278.0814,-140.9909"/>
+</g>
+<!-- AppService -->
+<g id="node3" class="node">
+<title>AppService</title>
+<ellipse fill="#fdb462" stroke="#000000" cx="188" cy="-104" rx="56.7406" ry="18"/>
+<text text-anchor="middle" x="188" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">AppService</text>
 </g>
 <!-- AppService&#45;&gt;AppModule -->
-<g id="edge1" class="edge">
-<title>AppService&#45;&gt;AppModule</title>
-<path fill="none" stroke="#000000" d="M279.104,-116.226C279.104,-116.226 279.104,-140.683 279.104,-140.683"/>
-<polygon fill="#000000" stroke="#000000" points="275.6041,-140.683 279.104,-150.683 282.6041,-140.683 275.6041,-140.683"/>
-</g>
-<!-- BooksService -->
-<g id="node2" class="node">
-<title>BooksService</title>
-<ellipse fill="#fdb462" stroke="#000000" cx="182.5" cy="-104" rx="64.8467" ry="18"/>
-<text text-anchor="middle" x="182.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">BooksService</text>
-</g>
-<!-- BooksService&#45;&gt;AppModule -->
 <g id="edge2" class="edge">
-<title>BooksService&#45;&gt;AppModule</title>
-<path fill="none" stroke="#000000" d="M228.4225,-116.8419C228.4225,-116.8419 228.4225,-140.5231 228.4225,-140.5231"/>
-<polygon fill="#000000" stroke="#000000" points="224.9226,-140.523 228.4225,-150.5231 231.9226,-140.5231 224.9226,-140.523"/>
+<title>AppService&#45;&gt;AppModule</title>
+<path fill="none" stroke="#000000" d="M227.396,-117.1537C227.396,-117.1537 227.396,-140.6938 227.396,-140.6938"/>
+<polygon fill="#000000" stroke="#000000" points="223.8961,-140.6938 227.396,-150.6938 230.8961,-140.6939 223.8961,-140.6938"/>
 </g>
 </g>
 </svg>
