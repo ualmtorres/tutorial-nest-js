@@ -1,40 +1,14 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+## Descripción
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Desarrollo de una API para el [Tutorial NestJS](https://ualmtorres.github.io/SeminarioNestJS/). La API trabaja con bases de datos (MySQL y PostgreSQL) e implementa endpoints para las operaciones básicas (`find, findOne, create, update, delete`). El tutorial comienza creando un armazón con los controladores y servicios funcionando en modo mock. Una vez probada la conexión correcta entre ellos, sustituye los servicios para que interactúen con la base de datos. Además, la API implementa control de acceso a los endpoints mediante JSON Web Tokens, queda documentada con Swagger y registra sus operaciones en archivos de log.
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+## Instalación
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Ejecución de la aplicación
 
 ```bash
 # development
@@ -47,29 +21,60 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Creación de los contenedores de bases de datos
+
+Para trabajar localmente con persistencia se necesistará una base de datos a la que conectarnos. Para evitar complicaciones con instalaciones y no acoplar el desarrollo a nuestro equipo utilizaremos
+
+- Una imagen Docker de MySQL 5.7
+- Una imagen Docker de PostgreSQL
+
+### Creación del contenedor MySQL
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ docker run --name tutorial_mysql -e MYSQL_ROOT_PASSWORD=secret -p 3306:3306 -d mysql:5.7
 ```
 
-## Support
+Iniciar una sesión interactiva en el contenedor con
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+$ docker exec -it tutorial_mysql bash
+```
 
-## Stay in touch
+Iniciar una sesión MySQL en el contenedor usando como password del `root` el valor `secret`
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+# mysql -u root -p
+```
 
-## License
+En el CLI de MySQL, crear una base de datos denominada `tutorial`
 
-  Nest is [MIT licensed](LICENSE).
+```sql
+create database tutorial;
+```
+
+### Creación del contenedor PostgreSQL
+
+```bash
+#!/bin/bash
+set -e
+
+SERVER="tutorial_postgres";
+PW="secret";
+DB="tutorial";
+
+echo "echo stop & remove old docker [$SERVER] and starting new fresh instance of [$SERVER]"
+(docker kill $SERVER || :) && \
+  (docker rm $SERVER || :) && \
+  docker run --name $SERVER -e POSTGRES_PASSWORD=$PW \
+  -e PGPASSWORD=$PW \
+  -p 5432:5432 \
+  -d postgres
+
+# wait for pg to start
+echo "sleep wait for pg-server [$SERVER] to start";
+SLEEP 3;
+
+# create the db
+echo "CREATE DATABASE $DB ENCODING 'UTF-8';" | docker exec -i $SERVER psql -U postgres
+echo "\l" | docker exec -i $SERVER psql -U postgres
+```
