@@ -20,27 +20,21 @@ import {
   ApiBearerAuth,
 } from '@nestjs/swagger';
 import { Book } from './book.entity';
-import { AppLogger } from '../app.logger';
-import * as winston from 'winston';
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { LoggerService } from '@nestjs/common';
-import { format, transports } from 'winston';
 import { AuthGuard } from '@nestjs/passport';
+import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
+import { Logger } from 'winston';
 @ApiTags('book')
 @Controller('books')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth('access-token')
 export class BooksController {
-  private theLogger: AppLogger = new AppLogger();
-
   /**
    *
    * @param {BooksService} booksService  Servicio de libros
    */
   constructor(
     private booksService: BooksService,
-    @Inject(WINSTON_MODULE_NEST_PROVIDER)
-    private readonly winstonLogger: LoggerService,
+    @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
   ) {}
 
   /**
@@ -58,17 +52,8 @@ export class BooksController {
   findAll(@Req() request: Request): Promise<Book[]> {
     let startTime = Date.now();
     let data = this.booksService.findAll(request.query);
-    let finishTime = Date.now();
-    let elapsedTime = finishTime - startTime;
-    this.winstonLogger.log(
-      `GET. url:/. user:${request['user'].username}. duration: ${elapsedTime}`,
-      'BookService',
-    );
-    /*
-    this.theLogger.log(
-      `GET. url:/. user:${request['user'].username}. duration: ${elapsedTime}`,
-    );
-    */
+
+    this.writeLog(startTime, request, 200);
     return data;
   }
 
@@ -88,13 +73,12 @@ export class BooksController {
     @Req() request: Request,
     @Param('bookId') bookId: string,
   ): Promise<Book> {
+    console.log(request);
     let startTime = Date.now();
     let data = this.booksService.findBook(bookId);
-    let finishTime = Date.now();
-    let elapsedTime = finishTime - startTime;
-    this.winstonLogger.log(
-      `GET. url:/${bookId}. user:${request['user'].username}. duration: ${elapsedTime}`,
-    );
+
+    this.writeLog(startTime, request, 200);
+
     return data;
   }
 
@@ -114,11 +98,9 @@ export class BooksController {
   createBook(@Req() request: Request, @Body() newBook: BookDto): Promise<Book> {
     let startTime = Date.now();
     let data = this.booksService.createBook(newBook);
-    let finishTime = Date.now();
-    let elapsedTime = finishTime - startTime;
-    this.winstonLogger.log(
-      `POST. url:/. user:${request['user'].username}. duration: ${elapsedTime}`,
-    );
+
+    this.writeLog(startTime, request, 201);
+
     return data;
   }
 
@@ -130,7 +112,7 @@ export class BooksController {
   @Delete(':bookId')
   @ApiOperation({ summary: 'Eliminar un libro específico' })
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Datos del libro eliminado',
   })
   deleteBook(
@@ -139,11 +121,9 @@ export class BooksController {
   ): Promise<Book> {
     let startTime = Date.now();
     let data = this.booksService.deleteBook(bookId);
-    let finishTime = Date.now();
-    let elapsedTime = finishTime - startTime;
-    this.winstonLogger.log(
-      `DELETE. url:/${bookId}. user:${request['user'].username}. duration: ${elapsedTime}`,
-    );
+
+    this.writeLog(startTime, request, 200);
+
     return data;
   }
 
@@ -156,7 +136,7 @@ export class BooksController {
   @Put(':bookId')
   @ApiOperation({ summary: 'Actualizar un libro específico' })
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Datos del libro actualizado',
   })
   updateBook(
@@ -166,11 +146,24 @@ export class BooksController {
   ): Promise<Book> {
     let startTime = Date.now();
     let data = this.booksService.updateBook(bookId, newBook);
+
+    this.writeLog(startTime, request, 200);
+
+    return data;
+  }
+
+  writeLog(startTime: any, request: any, statusCode: number) {
     let finishTime = Date.now();
     let elapsedTime = finishTime - startTime;
-    this.winstonLogger.log(
-      `PUT. url:/${bookId}. user:${request['user'].username}. duration: ${elapsedTime}`,
-    );
-    return data;
+
+    this.logger.log({
+      level: 'info',
+      message: '',
+      statusCode: statusCode,
+      method: request['method'],
+      url: request['url'],
+      user: request['user'].username,
+      duration: elapsedTime,
+    });
   }
 }

@@ -22,57 +22,45 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_BooksModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="42.5,-70 42.5,-195 453.5,-195 453.5,-70 42.5,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="111,-70 111,-195 385,-195 385,-70 111,-70"/>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_BooksModule_imports</title>
-<polygon fill="none" stroke="#000000" points="204.5,-78 204.5,-130 445.5,-130 445.5,-78 204.5,-78"/>
+<polygon fill="none" stroke="#000000" points="273,-78 273,-130 377,-130 377,-78 273,-78"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_BooksModule_providers</title>
-<polygon fill="none" stroke="#000000" points="50.5,-78 50.5,-130 196.5,-130 196.5,-78 50.5,-78"/>
+<polygon fill="none" stroke="#000000" points="119,-78 119,-130 265,-130 265,-78 119,-78"/>
 </g>
 <!-- AuthModule -->
 <g id="node1" class="node">
 <title>AuthModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="437.0482,-122 434.0482,-126 413.0482,-126 410.0482,-122 349.9518,-122 349.9518,-86 437.0482,-86 437.0482,-122"/>
-<text text-anchor="middle" x="393.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">AuthModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="368.5482,-122 365.5482,-126 344.5482,-126 341.5482,-122 281.4518,-122 281.4518,-86 368.5482,-86 368.5482,-122"/>
+<text text-anchor="middle" x="325" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">AuthModule</text>
 </g>
 <!-- BooksModule -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>BooksModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="320.3316,-187 317.3316,-191 296.3316,-191 293.3316,-187 224.6684,-187 224.6684,-151 320.3316,-151 320.3316,-187"/>
-<text text-anchor="middle" x="272.5" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">BooksModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="305.8316,-187 302.8316,-191 281.8316,-191 278.8316,-187 210.1684,-187 210.1684,-151 305.8316,-151 305.8316,-187"/>
+<text text-anchor="middle" x="258" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">BooksModule</text>
 </g>
 <!-- AuthModule&#45;&gt;BooksModule -->
 <g id="edge1" class="edge">
 <title>AuthModule&#45;&gt;BooksModule</title>
-<path fill="none" stroke="#000000" d="M393.5,-122.1061C393.5,-141.3391 393.5,-169 393.5,-169 393.5,-169 330.3224,-169 330.3224,-169"/>
-<polygon fill="#000000" stroke="#000000" points="330.3224,-165.5001 320.3224,-169 330.3224,-172.5001 330.3224,-165.5001"/>
-</g>
-<!-- MyLoggerModule -->
-<g id="node2" class="node">
-<title>MyLoggerModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="332.4229,-122 329.4229,-126 308.4229,-126 305.4229,-122 212.5771,-122 212.5771,-86 332.4229,-86 332.4229,-122"/>
-<text text-anchor="middle" x="272.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">MyLoggerModule</text>
-</g>
-<!-- MyLoggerModule&#45;&gt;BooksModule -->
-<g id="edge2" class="edge">
-<title>MyLoggerModule&#45;&gt;BooksModule</title>
-<path fill="none" stroke="#000000" d="M272.5,-122.1061C272.5,-122.1061 272.5,-140.991 272.5,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="269.0001,-140.9909 272.5,-150.991 276.0001,-140.991 269.0001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M293.446,-122.1061C293.446,-122.1061 293.446,-140.991 293.446,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="289.9461,-140.9909 293.446,-150.991 296.9461,-140.991 289.9461,-140.9909"/>
 </g>
 <!-- BooksService -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>BooksService</title>
-<ellipse fill="#fdb462" stroke="#000000" cx="123.5" cy="-104" rx="64.8467" ry="18"/>
-<text text-anchor="middle" x="123.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">BooksService</text>
+<ellipse fill="#fdb462" stroke="#000000" cx="192" cy="-104" rx="64.8467" ry="18"/>
+<text text-anchor="middle" x="192" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">BooksService</text>
 </g>
 <!-- BooksService&#45;&gt;BooksModule -->
-<g id="edge3" class="edge">
+<g id="edge2" class="edge">
 <title>BooksService&#45;&gt;BooksModule</title>
-<path fill="none" stroke="#000000" d="M123.5,-122.1061C123.5,-141.3391 123.5,-169 123.5,-169 123.5,-169 214.5353,-169 214.5353,-169"/>
-<polygon fill="#000000" stroke="#000000" points="214.5353,-172.5001 224.5353,-169 214.5353,-165.5001 214.5353,-172.5001"/>
+<path fill="none" stroke="#000000" d="M233.5038,-118.104C233.5038,-118.104 233.5038,-140.7209 233.5038,-140.7209"/>
+<polygon fill="#000000" stroke="#000000" points="230.0039,-140.7209 233.5038,-150.7209 237.0039,-140.7209 230.0039,-140.7209"/>
 </g>
 </g>
 </svg>

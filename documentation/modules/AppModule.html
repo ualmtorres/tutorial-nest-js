@@ -184,15 +184,41 @@ import { BooksModule } from &#x27;./books/books.module&#x27;;
 import { TypeOrmModule } from &#x27;@nestjs/typeorm&#x27;;
 import { configService } from &#x27;./config/config/config.service&#x27;;
 import { WinstonModule } from &#x27;nest-winston&#x27;;
+import * as winston from &#x27;winston&#x27;;
+import * as path from &#x27;path&#x27;;
+
 @Module({
   imports: [
     BooksModule,
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
-    WinstonModule.forRootAsync({
-      useFactory: () &#x3D;&gt; ({
-        // options
-      }),
-      inject: [],
+    WinstonModule.forRoot({
+      level: &#x27;info&#x27;,
+      format: winston.format.combine(
+        winston.format.timestamp({
+          format: &#x27;YYYY-MM-DD HH:mm:ss&#x27;,
+        }),
+        winston.format.errors({ stack: true }),
+        winston.format.splat(),
+        winston.format.json(),
+      ),
+      transports: [
+        new winston.transports.File({
+          dirname: path.join(__dirname, &#x27;./../log/debug/&#x27;),
+          filename: &#x27;debug.log&#x27;,
+          level: &#x27;debug&#x27;,
+        }),
+        new winston.transports.File({
+          dirname: path.join(__dirname, &#x27;./../log/error/&#x27;),
+          filename: &#x27;error.log&#x27;,
+          level: &#x27;error&#x27;,
+        }),
+        new winston.transports.File({
+          dirname: path.join(__dirname, &#x27;./../log/info/&#x27;),
+          filename: &#x27;info.log&#x27;,
+          level: &#x27;info&#x27;,
+        }),
+        new winston.transports.Console({ level: &#x27;debug&#x27; }),
+      ],
     }),
   ],
   controllers: [AppController],
