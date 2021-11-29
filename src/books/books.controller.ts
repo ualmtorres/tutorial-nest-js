@@ -9,6 +9,7 @@ import {
   Put,
   Inject,
   UseGuards,
+  Res,
 } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { Request } from 'express';
@@ -23,6 +24,7 @@ import { Book } from './book.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Logger } from 'winston';
+import { HttpStatus } from '@nestjs/common';
 @ApiTags('book')
 @Controller('books')
 @UseGuards(AuthGuard('jwt'))
@@ -45,16 +47,20 @@ export class BooksController {
   @Get()
   @ApiOperation({ summary: 'Obtener lista de libros' })
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.OK,
     description: 'Lista de libros',
-    type: Book,
+    type: [Book],
   })
-  findAll(@Req() request: Request): Promise<Book[]> {
+  async findAll(@Req() request: Request, @Res() res): Promise<Book[]> {
     let startTime = Date.now();
-    let data = this.booksService.findAll(request.query);
+    let data = await this.booksService.findAll(request.query);
 
-    this.writeLog(startTime, request, 200);
-    return data;
+    this.writeLog(startTime, request, HttpStatus.OK);
+    return res.status(HttpStatus.OK).json({
+      statusCode: HttpStatus.OK,
+      message: 'OK',
+      data: data,
+    });
   }
 
   /**
@@ -66,20 +72,29 @@ export class BooksController {
   @Get(':bookId')
   @ApiOperation({ summary: 'Devuelve información sobre un libro específico' })
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.OK,
     description: 'Datos del libro',
+    type: Book,
   })
-  findBook(
+  async findBook(
     @Req() request: Request,
     @Param('bookId') bookId: string,
+    @Res() res,
   ): Promise<Book> {
-    console.log(request);
+    let message = 'OK';
     let startTime = Date.now();
-    let data = this.booksService.findBook(bookId);
+    let data = await this.booksService.findBook(bookId);
 
-    this.writeLog(startTime, request, 200);
+    if (!data) {
+      message = 'A book with the specified id was not found';
+    }
 
-    return data;
+    this.writeLog(startTime, request, HttpStatus.OK);
+    return res.status(HttpStatus.OK).json({
+      statusCode: HttpStatus.OK,
+      message: message,
+      data: data,
+    });
   }
 
   /**
@@ -90,18 +105,25 @@ export class BooksController {
   @Post()
   @ApiOperation({ summary: 'Crear un libro' })
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Datos del libro creado',
     type: Book,
   })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
-  createBook(@Req() request: Request, @Body() newBook: BookDto): Promise<Book> {
+  async createBook(
+    @Req() request: Request,
+    @Body() newBook: BookDto,
+    @Res() res,
+  ): Promise<Book> {
     let startTime = Date.now();
-    let data = this.booksService.createBook(newBook);
+    let data = await this.booksService.createBook(newBook);
 
-    this.writeLog(startTime, request, 201);
-
-    return data;
+    this.writeLog(startTime, request, HttpStatus.CREATED);
+    return res.status(HttpStatus.CREATED).json({
+      statusCode: HttpStatus.CREATED,
+      message: 'OK',
+      data: data,
+    });
   }
 
   /**
@@ -115,16 +137,26 @@ export class BooksController {
     status: 200,
     description: 'Datos del libro eliminado',
   })
-  deleteBook(
+  async deleteBook(
     @Req() request: Request,
     @Param('bookId') bookId: string,
+    @Res() res,
   ): Promise<Book> {
+    let message = 'OK';
     let startTime = Date.now();
-    let data = this.booksService.deleteBook(bookId);
+    let data = await this.booksService.deleteBook(bookId);
 
-    this.writeLog(startTime, request, 200);
+    if (data['affected'] == 0) {
+      message = 'A book with the specified id was not found';
+      data = {};
+    }
 
-    return data;
+    this.writeLog(startTime, request, HttpStatus.OK);
+    return res.status(HttpStatus.OK).json({
+      statusCode: HttpStatus.OK,
+      message: message,
+      data: data,
+    });
   }
 
   /**
@@ -138,18 +170,28 @@ export class BooksController {
   @ApiResponse({
     status: 200,
     description: 'Datos del libro actualizado',
+    type: Book,
   })
-  updateBook(
+  async updateBook(
     @Req() request: Request,
     @Param('bookId') bookId: string,
     @Body() newBook: BookDto,
+    @Res() res,
   ): Promise<Book> {
+    let message = 'OK';
     let startTime = Date.now();
-    let data = this.booksService.updateBook(bookId, newBook);
+    let data = await this.booksService.updateBook(bookId, newBook);
 
-    this.writeLog(startTime, request, 200);
+    if (!data) {
+      message = 'A book with the specified id was not found';
+    }
 
-    return data;
+    this.writeLog(startTime, request, HttpStatus.OK);
+    return res.status(HttpStatus.OK).json({
+      statusCode: HttpStatus.OK,
+      message: message,
+      data: data,
+    });
   }
 
   writeLog(startTime: any, request: any, statusCode: number) {
